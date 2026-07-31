@@ -1,0 +1,61 @@
+cmake:
+  application:
+    configuration-dir: '/home/barth/zephyr/Project-Base/devboard'
+    source-dir: '/home/barth/zephyr/Project-Base/devboard'
+  board:
+    name: 'xiao_esp32c3'
+    path:
+     - '/home/barth/zephyrproject/zephyr/boards/seeed/xiao_esp32c3'
+    qualifiers: 'esp32c3'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/home/barth/zephyrproject/zephyr/dts/bindings'
+    files:
+     - '/home/barth/zephyrproject/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts'
+     - '/home/barth/zephyr/Project-Base/devboard/app.overlay'
+    include-dirs:
+     - '/home/barth/zephyrproject/modules/hal/ambiq/dts'
+     - '/home/barth/zephyrproject/modules/hal/atmel/include'
+     - '/home/barth/zephyrproject/modules/hal/bouffalolab/include'
+     - '/home/barth/zephyrproject/modules/hal/bouffalolab/include/zephyr'
+     - '/home/barth/zephyrproject/modules/hal/gigadevice/include'
+     - '/home/barth/zephyrproject/modules/hal/microchip/include'
+     - '/home/barth/zephyrproject/modules/hal/microchip/dts'
+     - '/home/barth/zephyrproject/modules/hal/nuvoton/dts'
+     - '/home/barth/zephyrproject/modules/hal/nxp/dts'
+     - '/home/barth/zephyrproject/modules/hal/stm32/dts'
+     - '/home/barth/zephyrproject/modules/hal/ti/dts'
+     - '/home/barth/zephyrproject/zephyr/include'
+     - '/home/barth/zephyrproject/zephyr/include/zephyr'
+     - '/home/barth/zephyrproject/zephyr/dts/common'
+     - '/home/barth/zephyrproject/zephyr/dts/vendor'
+     - '/home/barth/zephyrproject/zephyr/dts/rx'
+     - '/home/barth/zephyrproject/zephyr/dts/x86'
+     - '/home/barth/zephyrproject/zephyr/dts/xtensa'
+     - '/home/barth/zephyrproject/zephyr/dts/sparc'
+     - '/home/barth/zephyrproject/zephyr/dts/riscv'
+     - '/home/barth/zephyrproject/zephyr/dts/posix'
+     - '/home/barth/zephyrproject/zephyr/dts/arm64'
+     - '/home/barth/zephyrproject/zephyr/dts/arm'
+     - '/home/barth/zephyrproject/zephyr/dts/arc'
+     - '/home/barth/zephyrproject/zephyr/dts'
+    user-files:
+     - '/home/barth/zephyr/Project-Base/devboard/app.overlay'
+  kconfig:
+    files:
+     - '/home/barth/zephyrproject/zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3_defconfig'
+     - '/home/barth/zephyr/Project-Base/devboard/prj.conf'
+    user-files:
+     - '/home/barth/zephyr/Project-Base/devboard/prj.conf'
+  toolchain:
+    name: 'zephyr'
+    path: '/home/barth/zephyr-sdk-0.17.4'
+  zephyr:
+    version: '4.3.99'
+    zephyr-base: '/home/barth/zephyrproject/zephyr'
+version: '0.1.0'
+west:
+  command: '/home/barth/zephyrproject/.venv/bin/west build -b xiao_esp32c3*'
+  topdir: '/home/barth/zephyrproject'
+  version: '1.5.0'
