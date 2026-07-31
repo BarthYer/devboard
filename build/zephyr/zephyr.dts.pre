@@ -662,6 +662,7 @@ xiao_adc: &adc0 {};
 # 0 "<command-line>" 2
 # 1 "/home/barth/zephyr/Project-Base/devboard/app.overlay" 1
 
+
 /{
  aliases{
   led0=&led_1;
@@ -670,6 +671,41 @@ xiao_adc: &adc0 {};
   compatible = "gpio-leds";
   led_1:led_1{
    gpios=<&gpio0 0 (0 << 0)>;
+  };
+ };
+};
+
+
+
+
+&i2c0{
+ compatible = "espressif,esp32-i2c";
+ pinctrl-0 = <&i2c0_default>;
+ pinctrl-names = "default";
+ status ="okay";
+ oled: ssd1306@3c{
+  compatible= "solomon,ssd1306fb";
+
+  reg=<0x3c>;
+  segment-offset = <0>;
+  page-offset = <0>;
+  display-offset = <0>;
+  multiplex-ratio = <63>;
+  prechargep = <0x22>;
+  width = <128>;
+  height = <64>;
+ };
+
+};
+
+&pinctrl{
+ i2c0_default: i2c0_default {
+  group1 {
+   pinmux = <(((1 & 0x3FU) << 0U) | ((54 & 0x1FFU) << 6U) | ((54 & 0x1FFU) << 15U))>,
+     <(((2 & 0x3FU) << 0U) | ((53 & 0x1FFU) << 6U) | ((53 & 0x1FFU) << 15U))>;
+   bias-pull-up;
+   drive-open-drain;
+   output-high;
   };
  };
 };

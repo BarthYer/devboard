@@ -12,7 +12,7 @@
 		die-temp0 = &coretemp; /* in zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi:20 */
 		i2c-0 = &i2c0;         /* in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts:29 */
 		watchdog0 = &wdt0;     /* in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts:30 */
-		led0 = &led_1;         /* in ../zephyr/Project-Base/devboard/app.overlay:4 */
+		led0 = &led_1;         /* in ../zephyr/Project-Base/devboard/app.overlay:5 */
 	};
 
 	/* node '/chosen' defined in zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi:23 */
@@ -110,15 +110,15 @@
 
 		/* node '/pin-controller/i2c0_default' defined in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3-pinctrl.dtsi:36 */
 		i2c0_default: i2c0_default {
-			phandle = < 0x5 >; /* in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts:48 */
+			phandle = < 0x5 >; /* in ../zephyr/Project-Base/devboard/app.overlay:20 */
 
 			/* node '/pin-controller/i2c0_default/group1' defined in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3-pinctrl.dtsi:37 */
 			group1 {
-				pinmux = < 0x1b0d86 >,
-				         < 0x1a8d47 >; /* in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3-pinctrl.dtsi:38 */
-				bias-pull-up;          /* in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3-pinctrl.dtsi:40 */
-				drive-open-drain;      /* in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3-pinctrl.dtsi:41 */
-				output-high;           /* in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3-pinctrl.dtsi:42 */
+				pinmux = < 0x1b0d81 >,
+				         < 0x1a8d42 >; /* in ../zephyr/Project-Base/devboard/app.overlay:41 */
+				bias-pull-up;          /* in ../zephyr/Project-Base/devboard/app.overlay:43 */
+				drive-open-drain;      /* in ../zephyr/Project-Base/devboard/app.overlay:44 */
+				output-high;           /* in ../zephyr/Project-Base/devboard/app.overlay:45 */
 			};
 		};
 
@@ -319,17 +319,30 @@
 
 		/* node '/soc/i2c@60013000' defined in zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi:174 */
 		i2c0: xiao_i2c: i2c@60013000 {
-			compatible = "espressif,esp32-i2c"; /* in zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi:175 */
 			#address-cells = < 0x1 >;           /* in zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi:176 */
 			#size-cells = < 0x0 >;              /* in zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi:177 */
 			reg = < 0x60013000 0x1000 >;        /* in zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi:178 */
 			interrupts = < 0x1d 0x0 0x0 >;      /* in zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi:179 */
 			interrupt-parent = < &intc >;       /* in zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi:180 */
 			clocks = < &clock 0x4 >;            /* in zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi:181 */
-			status = "okay";                    /* in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts:46 */
 			clock-frequency = < 0x186a0 >;      /* in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts:47 */
-			pinctrl-0 = < &i2c0_default >;      /* in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts:48 */
-			pinctrl-names = "default";          /* in zephyr/boards/seeed/xiao_esp32c3/xiao_esp32c3.dts:49 */
+			compatible = "espressif,esp32-i2c"; /* in ../zephyr/Project-Base/devboard/app.overlay:19 */
+			pinctrl-0 = < &i2c0_default >;      /* in ../zephyr/Project-Base/devboard/app.overlay:20 */
+			pinctrl-names = "default";          /* in ../zephyr/Project-Base/devboard/app.overlay:21 */
+			status = "okay";                    /* in ../zephyr/Project-Base/devboard/app.overlay:22 */
+
+			/* node '/soc/i2c@60013000/ssd1306@3c' defined in ../zephyr/Project-Base/devboard/app.overlay:23 */
+			oled: ssd1306@3c {
+				compatible = "solomon,ssd1306fb"; /* in ../zephyr/Project-Base/devboard/app.overlay:24 */
+				reg = < 0x3c >;                   /* in ../zephyr/Project-Base/devboard/app.overlay:26 */
+				segment-offset = < 0x0 >;         /* in ../zephyr/Project-Base/devboard/app.overlay:27 */
+				page-offset = < 0x0 >;            /* in ../zephyr/Project-Base/devboard/app.overlay:28 */
+				display-offset = < 0x0 >;         /* in ../zephyr/Project-Base/devboard/app.overlay:29 */
+				multiplex-ratio = < 0x3f >;       /* in ../zephyr/Project-Base/devboard/app.overlay:30 */
+				prechargep = < 0x22 >;            /* in ../zephyr/Project-Base/devboard/app.overlay:31 */
+				width = < 0x80 >;                 /* in ../zephyr/Project-Base/devboard/app.overlay:32 */
+				height = < 0x40 >;                /* in ../zephyr/Project-Base/devboard/app.overlay:33 */
+			};
 		};
 
 		/* node '/soc/i2s@6002d000' defined in zephyr/dts/riscv/espressif/esp32c3/esp32c3_common.dtsi:185 */
@@ -555,13 +568,13 @@
 		           < 0xa 0x0 &gpio0 0xa 0x0 >;     /* in zephyr/boards/seeed/xiao_esp32c3/seeed_xiao_connector.dtsi:13 */
 	};
 
-	/* node '/leds' defined in ../zephyr/Project-Base/devboard/app.overlay:6 */
+	/* node '/leds' defined in ../zephyr/Project-Base/devboard/app.overlay:7 */
 	leds {
-		compatible = "gpio-leds"; /* in ../zephyr/Project-Base/devboard/app.overlay:7 */
+		compatible = "gpio-leds"; /* in ../zephyr/Project-Base/devboard/app.overlay:8 */
 
-		/* node '/leds/led_1' defined in ../zephyr/Project-Base/devboard/app.overlay:8 */
+		/* node '/leds/led_1' defined in ../zephyr/Project-Base/devboard/app.overlay:9 */
 		led_1: led_1 {
-			gpios = < &gpio0 0x0 0x0 >; /* in ../zephyr/Project-Base/devboard/app.overlay:9 */
+			gpios = < &gpio0 0x0 0x0 >; /* in ../zephyr/Project-Base/devboard/app.overlay:10 */
 		};
 	};
 };

@@ -175,9 +175,15 @@
 /home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/console/CMakeFiles/rebuild_cache.dir
 /home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/console/CMakeFiles/edit_cache.dir
 /home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/console/CMakeFiles/drivers__console.dir
+/home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/display/CMakeFiles/rebuild_cache.dir
+/home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/display/CMakeFiles/edit_cache.dir
+/home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/display/CMakeFiles/drivers__display.dir
 /home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/gpio/CMakeFiles/rebuild_cache.dir
 /home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/gpio/CMakeFiles/edit_cache.dir
 /home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/gpio/CMakeFiles/drivers__gpio.dir
+/home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/i2c/CMakeFiles/rebuild_cache.dir
+/home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/i2c/CMakeFiles/edit_cache.dir
+/home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/i2c/CMakeFiles/drivers__i2c.dir
 /home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/pinctrl/CMakeFiles/rebuild_cache.dir
 /home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/pinctrl/CMakeFiles/edit_cache.dir
 /home/barth/zephyr/Project-Base/devboard/build/zephyr/drivers/pinctrl/CMakeFiles/drivers__pinctrl.dir

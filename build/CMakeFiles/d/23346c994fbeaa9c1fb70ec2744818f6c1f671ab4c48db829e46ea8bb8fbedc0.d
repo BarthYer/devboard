@@ -46,6 +46,7 @@ zephyr/linker.cmd: \
   zephyr/include/generated/snippets-rwdata.ld \
   /home/barth/zephyrproject/zephyr/arch/riscv/core/swi_tables.ld \
   zephyr/include/generated/snippets-data-sections.ld \
+  /home/barth/zephyrproject/zephyr/subsys/fb/check_cfb_fonts.ld \
   /home/barth/zephyrproject/zephyr/include/zephyr/linker/common-ram.ld \
   /home/barth/zephyrproject/zephyr/include/zephyr/linker/iterable_sections.h \
   zephyr/include/generated/snippets-ram-sections.ld \
