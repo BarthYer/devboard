@@ -6,4 +6,5 @@ project(devboard)
 zephyr_include_directories(include)
 
 target_sources(app PRIVATE
-        src/main.c)
+        src/main.c
+        src/ssd1306.c)

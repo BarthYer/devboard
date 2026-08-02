@@ -4,8 +4,7 @@
 #include <zephyr/drivers/i2c.h>
 #include <zephyr/drivers/display.h>
 #include <zephyr/display/cfb.h>
-#include <stdio.h>
-
+#include "ssd1306.h"
 
 #define LED0 DT_ALIAS(led0)
 
@@ -14,8 +13,6 @@ static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED0, gpios);
 static const struct device *oled = DEVICE_DT_GET(DT_NODELABEL(oled));
 
 int main(void){
-    char text[32];
-    int counter = 0;
 
     if(!device_is_ready(led.port)){
         return -ENODEV;
@@ -41,12 +38,7 @@ int main(void){
     while (1){
         gpio_pin_toggle_dt(&led);
 
-        cfb_framebuffer_clear(oled, false);
-        //snprintf(text, sizeof(text), "Compteur: %d", counter++);
-        snprintf(text, sizeof(text), "Compteur : ");
-        cfb_print(oled, text, 20, 0);
-        
-        cfb_framebuffer_finalize(oled);
+        draw_menu(oled, 0);
 
         k_msleep(1000);
     }
