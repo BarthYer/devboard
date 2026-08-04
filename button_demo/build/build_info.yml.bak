@@ -1,0 +1,4 @@
+west:
+  command: /home/barth/zephyrproject/.venv/bin/west build
+  topdir: /home/barth/zephyrproject
+  version: 1.5.0
