@@ -1,2 +1,0 @@
-# Load Zephyr board defconfig descriptions.
-osource "/home/barth/zephyrproject/zephyr/boards/seeed/xiao_esp32c3/Kconfig.defconfig"

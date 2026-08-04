@@ -1,0 +1,44 @@
+/{
+	aliases{
+		button1 = &button_1;
+		button2 = &button_2;
+		led1 = &led_1;
+		oled=&ssd1306_1;
+	};
+
+	leds{
+		compatible = "gpio-leds";
+		led_1:led_1{
+			gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
+		};
+	};
+	buttons{
+		compatible = "gpio-keys";
+		button_1:button_1{
+			gpios = <&gpio0 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+		};
+		button_2:button_2{
+			gpios = <&gpio0 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+		};
+	};
+
+
+};
+
+
+&i2c0{
+	status = "okay";
+	pinctrl-0 = <&i2c0_default>;
+	pinctrl-names = "default";
+	ssd1306_1:ssd1306@3c{
+		compatible = "solomon,ssd1306fb";
+		reg =<0x3c>;
+		segment-offset = <0>;
+		page-offset = <0>;
+		display-offset=<0>;
+		multiplex-ratio = <63>;
+		prechargep = <0x22>;
+		width = <128>;
+		height = <64>;
+	};
+};

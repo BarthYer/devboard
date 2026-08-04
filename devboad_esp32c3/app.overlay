@@ -1,0 +1,61 @@
+
+
+/{
+	aliases{
+		led0=&led_1;
+		sw0=&button_next;
+		sw1=&button_select;
+	};
+	leds{
+		compatible = "gpio-leds";
+		led_1:led_1{
+			gpios=<&gpio0 0 GPIO_ACTIVE_HIGH>;
+		};
+	};
+	buttons{
+		compatible = "gpio-keys";
+		button_next: button_next{
+			gpios=<&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+			label = "Next";
+		};
+		button_select: button_select{
+			gpios=<&gpio0 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+			label = "Select";
+		};
+	};
+};
+
+
+
+
+&i2c0{
+	compatible = "espressif,esp32-i2c";
+	pinctrl-0 = <&i2c0_default>;
+	pinctrl-names = "default";
+	status ="okay";
+	oled: ssd1306@3c{
+		compatible= "solomon,ssd1306fb";
+
+		reg=<0x3c>;
+		segment-offset = <0>;
+		page-offset = <0>;
+		display-offset = <0>;
+		multiplex-ratio = <63>;
+		prechargep = <0x22>;
+		width = <128>;
+		height = <64>;
+	};
+
+};
+
+&pinctrl{
+	i2c0_default: i2c0_default {
+		group1 {
+			pinmux = <I2C0_SDA_GPIO1>,
+				 <I2C0_SCL_GPIO2>;
+			bias-pull-up;
+			drive-open-drain;
+			output-high;
+		};
+	};
+};
