@@ -1,28 +1,12 @@
 #include "ssd1306.h"
 
-struct cfb_position circle[5] = {
-    {
-        .x = 5,
-        .y = 5,
-    },
-     {
-        .x = 10,
-        .y = 10,
-    }, 
-     {
-        .x = 20,
-        .y = 20,
-    }, 
-     {
-        .x = 25,
-        .y = 25,
-    }, 
-     {
-        .x = 30,
-        .y = 30,
-    }, 
-    };
-
+#define CIRCLE_CENTER_X   64
+#define CIRCLE_CENTER_Y   32
+#define CIRCLE_MIN_RADIUS 2
+#define CIRCLE_MAX_RADIUS 30
+#define CIRCLE_COUNT      4
+#define CIRCLE_SPACING    (CIRCLE_MAX_RADIUS / CIRCLE_COUNT)
+#define CIRCLE_GROWTH_STEP 1
 
 void position_nomber_of_cercle(struct cfb_position *tab[], int number){
     for(int i=0; i<number; i++){
@@ -31,15 +15,24 @@ void position_nomber_of_cercle(struct cfb_position *tab[], int number){
     }
 }
 
-void draw_circles(const struct device dev, int numbers){
-   
-    int count=0;
-    for (int i =0; i<5; i++){
-        cfb_draw_circle(&dev, &circle[i], 2);
-        //cfb_framebuffer_finalize(&dev);
+void draw_circles(const struct device *dev, int numbers){
+    ARG_UNUSED(numbers);
+
+    static int radius = CIRCLE_MIN_RADIUS;
+
+    struct cfb_position center = {
+        .x = CIRCLE_CENTER_X,
+        .y = CIRCLE_CENTER_Y,
+    };
+
+    for (int i = 0; i < CIRCLE_COUNT; i++) {
+        int r = ((radius + i * CIRCLE_SPACING - CIRCLE_MIN_RADIUS) % (CIRCLE_MAX_RADIUS - CIRCLE_MIN_RADIUS))
+                + CIRCLE_MIN_RADIUS;
+        cfb_draw_circle(dev, &center, r);
     }
 
-    
-    
-   
+    radius += CIRCLE_GROWTH_STEP;
+    if (radius >= CIRCLE_MAX_RADIUS) {
+        radius = CIRCLE_MIN_RADIUS;
+    }
 }

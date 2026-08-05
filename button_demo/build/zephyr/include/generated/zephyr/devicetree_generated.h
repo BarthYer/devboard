@@ -1592,7 +1592,7 @@
 /* Generic property macros: */
 #define DT_N_S_buttons_S_button_2_P_gpios_IDX_0_EXISTS 1
 #define DT_N_S_buttons_S_button_2_P_gpios_IDX_0_PH DT_N_S_soc_S_gpio_S_gpio_60004000
-#define DT_N_S_buttons_S_button_2_P_gpios_IDX_0_VAL_pin 5
+#define DT_N_S_buttons_S_button_2_P_gpios_IDX_0_VAL_pin 18
 #define DT_N_S_buttons_S_button_2_P_gpios_IDX_0_VAL_pin_EXISTS 1
 #define DT_N_S_buttons_S_button_2_P_gpios_IDX_0_VAL_flags 17
 #define DT_N_S_buttons_S_button_2_P_gpios_IDX_0_VAL_flags_EXISTS 1

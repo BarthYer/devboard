@@ -1067,7 +1067,7 @@ zephyr_udc0: &usb_otg {
    gpios = <&gpio0 4 ((1 << 0) | (1 << 4))>;
   };
   button_2:button_2{
-   gpios = <&gpio0 5 ((1 << 0) | (1 << 4))>;
+   gpios = <&gpio0 18 ((1 << 0) | (1 << 4))>;
   };
  };
 

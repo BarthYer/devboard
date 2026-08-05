@@ -58,8 +58,8 @@ int main(void){
             printf("orientation not set\n");
             //return 0;
         }
-    
-    //display_blanking_off(ssd1306);
+    cfb_framebuffer_clear(ssd1306, false);
+    display_blanking_off(ssd1306);
     cfb_framebuffer_clear(ssd1306, true);
    
     bool state; 
