@@ -10,6 +10,9 @@
 #define TIME_POSX  0
 #define TIME_POSY  0
 
+#define INTRO_POSX  30
+#define INTRO_POSY  20
+
 //wifi barres conf 
 struct cfb_position start1 = {
         .x= 2,
@@ -149,12 +152,18 @@ struct cfb_position endbatpur6 = {
         .y = 3,
     };
 
+void write_introduction(const struct device *dev){
+    cfb_draw_text(dev, "Welcome", INTRO_POSX, INTRO_POSY);
+    if(cfb_draw_text(dev, "To IESD", INTRO_POSX, INTRO_POSY+20)!=0){
+        printf("intro not print\n");
+        return;
+    }
+}
 
 void draw_batterie(const struct device *dev){
     
     cfb_draw_rect(dev, &startbat, &endbat);
     cfb_draw_line(dev, &startbatf, &endbatf);
-    
     //draw bar purcentage 
     cfb_draw_line(dev, &startbatpur1, &endbatpur1);
     cfb_draw_line(dev, &startbatpur2, &endbatpur2);
@@ -172,6 +181,7 @@ void draw_acceuil(const struct device *dev){
 
     draw_wifi(dev);  //draw wifi
     draw_batterie(dev);
+    write_introduction(dev);
     /*if(cfb_draw_text(dev, "wifi", TIME_POSX, TIME_POSY)!=0){
         printf("hours not print\n");
         return;

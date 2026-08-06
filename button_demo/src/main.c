@@ -78,7 +78,7 @@ int main(void){
         .x = 25,
         .y = 40,
     };
-
+    cfb_framebuffer_invert(ssd1306);
     while(1){
         state = gpio_pin_get_dt(&button);
         if(gpio_pin_get_dt(&button_next)){
