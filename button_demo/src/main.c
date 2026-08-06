@@ -97,8 +97,9 @@ int main(void){
         snprintf(message, sizeof(message), "Count : %d", count);
         cfb_framebuffer_clear(ssd1306, false);
         //cfb_print(ssd1306, message, 20, 20);
-        cfb_draw_line(ssd1306, &start, &end );
-        //cfb_draw_circle(ssd1306, &circle, count);
+        cfb_draw_line(ssd1306, &start, &end );   //draw line 
+        draw_acceuil(ssd1306);
+        
         draw_circles(ssd1306, count);
         //cfb_framebuffer_set_font(ssd1306, 0.5);
         //cfb_framebuffer_clear(ssd1306, true);

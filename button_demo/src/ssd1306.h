@@ -10,11 +10,11 @@
 #include <zephyr/sys/printk.h>
 #include <string.h>
 #include <stdio.h>
-
+#include <time.h>
 
 void draw_circle(const struct device dev);
 void position_nomber_of_cercle(struct cfb_position *tab[], int number);
 void draw_circles(const struct device *dev, int numbers);
-
+void draw_acceuil(const struct device *dev);
 
 #endif
